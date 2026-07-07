@@ -1,4 +1,4 @@
-const API_URL = "http://13.200.97.215:5000/api/auth";
+const API_URL = "/api/auth";
 
 export async function login(
   email: string,
