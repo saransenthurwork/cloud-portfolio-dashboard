@@ -9,9 +9,9 @@ import {
   deleteContainer,
 } from "../services/DockerService";
 
-type DockerParams = {
+interface DockerParams {
   id: string;
-};
+}
 
 export async function listContainers(
   _req: Request,
@@ -54,11 +54,13 @@ export async function createContainer(
 }
 
 export async function start(
-  req: Request<DockerParams>,
+  req: Request<DockerParams, any, any, any>,
   res: Response
 ) {
   try {
-    const result = await startContainer(req.params.id);
+    const { id } = req.params;
+
+    const result = await startContainer(id);
 
     res.json(result);
   } catch (error) {
@@ -71,11 +73,13 @@ export async function start(
 }
 
 export async function stop(
-  req: Request<DockerParams>,
+  req: Request<DockerParams, any, any, any>,
   res: Response
 ) {
   try {
-    const result = await stopContainer(req.params.id);
+    const { id } = req.params;
+
+    const result = await stopContainer(id);
 
     res.json(result);
   } catch (error) {
@@ -88,11 +92,13 @@ export async function stop(
 }
 
 export async function remove(
-  req: Request<DockerParams>,
+  req: Request<DockerParams, any, any, any>,
   res: Response
 ) {
   try {
-    const result = await deleteContainer(req.params.id);
+    const { id } = req.params;
+
+    const result = await deleteContainer(id);
 
     res.json(result);
   } catch (error) {
