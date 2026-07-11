@@ -41,8 +41,7 @@ async function createContainer(req, res) {
 }
 async function start(req, res) {
     try {
-        const { id } = req.params;
-        const result = await (0, DockerService_1.startContainer)(id);
+        const result = await (0, DockerService_1.startContainer)(req.params.id);
         res.json(result);
     }
     catch (error) {
@@ -54,8 +53,7 @@ async function start(req, res) {
 }
 async function stop(req, res) {
     try {
-        const { id } = req.params;
-        const result = await (0, DockerService_1.stopContainer)(id);
+        const result = await (0, DockerService_1.stopContainer)(req.params.id);
         res.json(result);
     }
     catch (error) {
@@ -67,8 +65,7 @@ async function stop(req, res) {
 }
 async function remove(req, res) {
     try {
-        const { id } = req.params;
-        const result = await (0, DockerService_1.deleteContainer)(id);
+        const result = await (0, DockerService_1.deleteContainer)(req.params.id);
         res.json(result);
     }
     catch (error) {
