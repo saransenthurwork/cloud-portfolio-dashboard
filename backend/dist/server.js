@@ -14,9 +14,11 @@ const ProjectRoutes_1 = __importDefault(require("./routes/ProjectRoutes"));
 const DockerRoutes_1 = __importDefault(require("./routes/DockerRoutes"));
 const HealthRoutes_1 = __importDefault(require("./routes/HealthRoutes"));
 const MetricsRoutes_1 = __importDefault(require("./routes/MetricsRoutes"));
+const DocsRoutes_1 = __importDefault(require("./routes/DocsRoutes"));
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
+app.use("/api/docs", DocsRoutes_1.default);
 app.use((0, pino_http_1.default)({
     logger: logger_1.default,
 }));

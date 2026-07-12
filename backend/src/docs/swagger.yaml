@@ -1,0 +1,61 @@
+openapi: 3.0.3
+
+info:
+  title: Nimbus Cloud API
+  description: Cloud Portfolio Dashboard Backend API
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:5000
+
+paths:
+
+  /api/health:
+    get:
+      summary: Health Check
+
+      responses:
+        "200":
+          description: API is healthy
+
+  /api/auth/login:
+    post:
+      summary: Login
+
+      requestBody:
+        required: true
+
+        content:
+          application/json:
+
+            schema:
+
+              type: object
+
+              properties:
+
+                email:
+                  type: string
+
+                password:
+                  type: string
+
+      responses:
+        "200":
+          description: Login successful
+
+  /api/projects:
+    get:
+      summary: List Projects
+
+      responses:
+        "200":
+          description: Projects retrieved successfully
+
+  /api/docker:
+    get:
+      summary: List Docker Containers
+
+      responses:
+        "200":
+          description: Containers retrieved successfully

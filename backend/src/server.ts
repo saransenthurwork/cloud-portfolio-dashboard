@@ -11,11 +11,13 @@ import projectRoutes from "./routes/ProjectRoutes";
 import dockerRoutes from "./routes/DockerRoutes";
 import healthRoutes from "./routes/HealthRoutes";
 import metricsRoutes from "./routes/MetricsRoutes";
+import docsRoutes from "./routes/DocsRoutes";
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use("/api/docs", docsRoutes);
 
 app.use(
   pinoHttp({
